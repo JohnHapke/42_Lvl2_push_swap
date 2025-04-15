@@ -6,7 +6,7 @@
 /*   By: jhapke <jhapke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 08:18:53 by jhapke            #+#    #+#             */
-/*   Updated: 2025/04/15 09:28:18 by jhapke           ###   ########.fr       */
+/*   Updated: 2025/04/15 15:16:28 by jhapke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@ typedef struct s_stack
 	int		value;
 }	t_stack;
 
-// input control
+// parse input
+int	ft_valid_number_format(char *str);
+int	ft_atoi_checker(char *str);
+void	ft_parse_manager(int argc, char **argv, t_stack *stack_a);
+
+
+// init
+t_stack *ft_init_stack();
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: jhapke <jhapke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 08:33:18 by jhapke            #+#    #+#             */
-/*   Updated: 2025/04/15 10:58:30 by jhapke           ###   ########.fr       */
+/*   Updated: 2025/04/15 15:02:07 by jhapke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	ft_parse_manager(int argc, char **argv, t_node *stack_a)
+void	ft_parse_manager(int argc, char **argv, t_stack *stack_a)
 {
 	int	i;
 	int	num;
@@ -28,7 +28,6 @@ void	ft_parse_manager(int argc, char **argv, t_node *stack_a)
 		if (num exists in stack_a)
 		
 	}
-	ft_input_checker(argc, argv);
 }
 
 int	ft_atoi_checker(char *str)
@@ -115,8 +114,8 @@ int	main(int argc, char **argv)
 	t_node	*stack_a;
 	t_node	*stack_b;
 
-	stack_a = ft_calloc(NULL, sizeof(t_node));
-	stack_b = ft_calloc(NULL, sizeof(t_node));
+	stack_a = malloc(sizeof(t_stack));
+	stack_b = malloc(sizeof(t_stack));
 	if (argc > 2)
 		ft_parse_manager(argc, argv, stack_a);
 }
