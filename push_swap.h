@@ -6,7 +6,7 @@
 /*   By: jhapke <jhapke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 08:18:53 by jhapke            #+#    #+#             */
-/*   Updated: 2025/04/15 15:16:28 by jhapke           ###   ########.fr       */
+/*   Updated: 2025/04/16 11:24:57 by jhapke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,28 @@ typedef struct s_stack
 }	t_stack;
 
 // parse input
-int	ft_valid_number_format(char *str);
-int	ft_atoi_checker(char *str);
+int		ft_valid_number_format(char *str);
+int		ft_atoi_checker(char *str);
 void	ft_parse_manager(int argc, char **argv, t_stack *stack_a);
-
+int		ft_duplicate_checker(t_stack *stack, int num);
 
 // init
-t_stack *ft_init_stack();
+t_stack	*ft_init_stack(void);
+void	ft_add_to_stack(t_stack *stack, int num);
+t_node	*ft_create_node(int num);
+void	ft_assign_index(t_stack *stack);
+
+// debug
+void	ft_print_stack(t_stack *stack);
+
+// memory
+void	ft_free_stack(t_stack *stack);
+
+// error_handling
+void	ft_error_handler(t_stack *stack_a, t_stack *stack_b);
+
+// algorithm
+void	ft_sort_two(t_stack *stack);
+void	ft_sort_three(t_stack *stack);
 
 #endif
