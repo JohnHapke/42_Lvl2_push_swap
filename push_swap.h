@@ -6,7 +6,7 @@
 /*   By: jhapke <jhapke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 08:18:53 by jhapke            #+#    #+#             */
-/*   Updated: 2025/04/16 11:24:57 by jhapke           ###   ########.fr       */
+/*   Updated: 2025/04/17 12:45:35 by jhapke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,15 @@ void	ft_error_handler(t_stack *stack_a, t_stack *stack_b);
 // algorithm
 void	ft_sort_two(t_stack *stack);
 void	ft_sort_three(t_stack *stack);
+
+//operations
+void	ft_push_a(t_stack *stack_a, t_stack *stack_b);
+void	ft_push_b(t_stack *stack_a, t_stack *stack_b);
+void	ft_swap_a(t_stack *stack_a);
+void	ft_swap_b(t_stack *stack_b);
+void	ft_swap_s(t_stack *stack_a, t_stack *stack_b);
+void	ft_rotate_a(t_stack *stack_a);
+void	ft_rotate_b(t_stack *stack_b);
+void	ft_rotate_r(t_stack *stack_a, t_stack *stack_b);
 
 #endif

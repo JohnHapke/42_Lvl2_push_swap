@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   basic_algorithm.c                                  :+:      :+:    :+:   */
+/*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhapke <jhapke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:18:29 by jhapke            #+#    #+#             */
-/*   Updated: 2025/04/16 11:22:55 by jhapke           ###   ########.fr       */
+/*   Updated: 2025/04/17 11:30:07 by jhapke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_sort_two(t_stack *stack)
 {
 	if (stack->top->nbr > stack->top->next->nbr)
-		// swap a und b
+		ft_swap_a(stack);
 }
 
 void	ft_sort_three(t_stack *stack)
