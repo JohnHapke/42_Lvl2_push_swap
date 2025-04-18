@@ -6,7 +6,7 @@
 /*   By: jhapke <jhapke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 08:18:53 by jhapke            #+#    #+#             */
-/*   Updated: 2025/04/17 12:45:35 by jhapke           ###   ########.fr       */
+/*   Updated: 2025/04/18 12:45:09 by jhapke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,21 @@
 # define MY_INT_MIN -2147483648
 # define MY_INT_MAX 2147483647
 
+typedef enum e_ops
+{
+	SA,
+	SB,
+	SS,
+	PA,
+	PB,
+	RA,
+	RB,
+	RR,
+	RRA,
+	RRB,
+	RRR,
+}	t_ops;
+
 typedef struct s_node
 {
 	int				nbr;
@@ -30,7 +45,7 @@ typedef struct s_node
 typedef struct s_stack
 {
 	t_node	*top;
-	int		value;
+	int		size;
 }	t_stack;
 
 // parse input
@@ -54,18 +69,23 @@ void	ft_free_stack(t_stack *stack);
 // error_handling
 void	ft_error_handler(t_stack *stack_a, t_stack *stack_b);
 
-// algorithm
+// small algorithm
 void	ft_sort_two(t_stack *stack);
 void	ft_sort_three(t_stack *stack);
 
-//operations
-void	ft_push_a(t_stack *stack_a, t_stack *stack_b);
-void	ft_push_b(t_stack *stack_a, t_stack *stack_b);
-void	ft_swap_a(t_stack *stack_a);
-void	ft_swap_b(t_stack *stack_b);
-void	ft_swap_s(t_stack *stack_a, t_stack *stack_b);
-void	ft_rotate_a(t_stack *stack_a);
-void	ft_rotate_b(t_stack *stack_b);
-void	ft_rotate_r(t_stack *stack_a, t_stack *stack_b);
+//operations handler
+void	ft_push_handler(t_stack *stack_a, t_stack *stack_b, t_ops flag);
+void	ft_swap_handler(t_stack *a, t_stack *b, t_ops flag);
+void	ft_rotate_handler(t_stack *a, t_stack *b, t_ops flag);
+void	ft_reverse_rotate_handler(t_stack *a, t_stack *b, t_ops flag);
+
+// operations ft
+void	ft_swap(t_stack *stack);
+void	ft_rotate(t_stack *stack);
+void	ft_reverse_rotate(t_stack *stack);
+
+// principal algorithm
+void	ft_sort_handler(t_stack *a, t_stack *b);
+void	ft_partition_stack(t_stack *a, t_stack *b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jhapke <jhapke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 15:05:22 by jhapke            #+#    #+#             */
-/*   Updated: 2025/04/16 11:08:11 by jhapke           ###   ########.fr       */
+/*   Updated: 2025/04/18 12:22:09 by jhapke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_stack *ft_init_stack(void)
     if (!stack)
         ft_error_handler(stack, NULL);
     stack->top = NULL;
-    stack->value = 0;
+    stack->size = 0;
     return (stack);
 }
 
@@ -54,7 +54,7 @@ void	ft_add_to_stack(t_stack *stack, int num)
             tmp = tmp->next;
         tmp->next = new_node;
     }
-    stack->value += 1;
+    stack->size += 1;
 }
 
 void	ft_assign_index(t_stack *stack)

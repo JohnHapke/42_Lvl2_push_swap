@@ -6,7 +6,7 @@
 /*   By: jhapke <jhapke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 15:10:48 by jhapke            #+#    #+#             */
-/*   Updated: 2025/04/16 11:06:51 by jhapke           ###   ########.fr       */
+/*   Updated: 2025/04/18 12:22:39 by jhapke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_print_stack(t_stack *stack)
 {
-	t_node *tmp;
+	t_node	*tmp;
 
 	tmp = stack->top;
 	while (tmp != NULL)
