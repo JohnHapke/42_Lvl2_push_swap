@@ -6,7 +6,7 @@
 /*   By: jhapke <jhapke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 08:18:53 by jhapke            #+#    #+#             */
-/*   Updated: 2025/04/18 12:45:09 by jhapke           ###   ########.fr       */
+/*   Updated: 2025/04/22 10:52:09 by jhapke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,14 @@ typedef struct s_stack
 	int		size;
 }	t_stack;
 
+typedef struct s_best_move
+{
+	int	best_pos_b;
+	int	best_pos_a;
+	int	element_value;
+	int	min_cost;
+}	t_best_move;
+
 // parse input
 int		ft_valid_number_format(char *str);
 int		ft_atoi_checker(char *str);
@@ -60,13 +68,8 @@ void	ft_add_to_stack(t_stack *stack, int num);
 t_node	*ft_create_node(int num);
 void	ft_assign_index(t_stack *stack);
 
-// debug
-void	ft_print_stack(t_stack *stack);
-
-// memory
+// memory & error
 void	ft_free_stack(t_stack *stack);
-
-// error_handling
 void	ft_error_handler(t_stack *stack_a, t_stack *stack_b);
 
 // small algorithm
@@ -87,5 +90,15 @@ void	ft_reverse_rotate(t_stack *stack);
 // principal algorithm
 void	ft_sort_handler(t_stack *a, t_stack *b);
 void	ft_partition_stack(t_stack *a, t_stack *b);
+void	ft_cost_calculation(t_stack *a, t_stack *b, t_best_move *best_move);
+int		ft_total_cost(t_stack *a, t_stack *b, int pos_b, int pos_a);
+int		ft_cost_operation(t_stack *stack, int pos);
+int		ft_position_a(t_stack *a, int index_b);
+int		ft_pos_m_index(t_stack *a, int m_index, int code);
+int		ft_pos_index(t_stack *a, int index_b);
+void	ft_exec_best_move(t_stack *a, t_stack *b, t_best_move *best_move);
+void	ft_rot_exec(t_stack *a, int rot_count, int rotate_up, int code);
+int		ft_rot_count(int size, int pos);
+int		ft_rot_up(int size, int pos);
 
 #endif

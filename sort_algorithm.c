@@ -6,7 +6,7 @@
 /*   By: jhapke <jhapke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 11:32:27 by jhapke            #+#    #+#             */
-/*   Updated: 2025/04/18 12:44:11 by jhapke           ###   ########.fr       */
+/*   Updated: 2025/04/22 12:04:45 by jhapke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,20 @@
 
 void	ft_sort_handler(t_stack *a, t_stack *b)
 {
+	t_best_move	*best_move;
+
+	best_move = ft_calloc(1, sizeof(t_best_move));
+	if (!best_move)
+		ft_error_handler(a, b);
 	ft_partition_stack(a, b);
 	ft_sort_three(a);
+	while (b->size > 0)
+	{
+		ft_cost_calculation(a, b, best_move);
+		ft_exec_best_move(a, b, best_move);
+	}
+	free (best_move);
+	best_move = NULL;
 }
 
 void	ft_partition_stack(t_stack *a, t_stack *b)
