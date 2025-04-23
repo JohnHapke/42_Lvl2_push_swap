@@ -6,7 +6,7 @@
 /*   By: jhapke <jhapke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 10:53:50 by jhapke            #+#    #+#             */
-/*   Updated: 2025/04/23 11:48:54 by jhapke           ###   ########.fr       */
+/*   Updated: 2025/04/23 16:16:26 by jhapke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,30 +42,36 @@ void	ft_partition_stack(t_stack *a, t_stack *b)
 
 int	ft_position_a(t_stack *a, int index_b)
 {
-	t_node	*current_a;
-	int		max_index;
+	t_node	*current;
+	t_node	*next_node;
 	int		min_index;
+	int		pos;
+	int		min_pos;
 
 	if (a->top == NULL)
 		return (0);
-	max_index = MY_INT_MIN;
-	min_index = MY_INT_MAX;
-	current_a = a->top;
-	while (current_a != NULL)
+	current = a->top;
+	min_index = current->index;
+	min_pos = 0;
+	pos = 0;
+	while (current != NULL)
 	{
-		if (current_a->index < min_index)
-			min_index = current_a->index;
-		if (current_a->index > max_index)
-			max_index = current_a->index;
-		current_a = current_a->next;
+		next_node = current->next;
+		if (!current->next)
+			next_node = a->top;
+		if (current->index < min_index)
+		{
+			min_index = current->index;
+			min_pos = pos;
+		}
+		if ((current->index < index_b && index_b < next_node->index)
+			|| (current->index > next_node->index && (index_b > current->index
+				|| index_b < next_node->index)))
+			return ((pos + 1) % a->size);
+		pos++;
+		current = current->next;
 	}
-	printf("index_b: %d, min_index: %d, max_index: %d\n", index_b, min_index, max_index);
-	if (index_b < min_index)
-		return (ft_pos_m_index(a, min_index, 0));
-	else if (index_b > max_index)
-		return ((ft_pos_m_index(a, max_index, 1)) % a->size);
-	else
-		return (ft_pos_index(a, index_b));
+	return ((min_pos + 1) % a->size);
 }
 
 int	ft_pos_m_index(t_stack *a, int m_index, int code)
@@ -87,7 +93,7 @@ int	ft_pos_m_index(t_stack *a, int m_index, int code)
 	return (0);
 }
 
-int	ft_pos_index(t_stack *a, int index_b)
+/*int	ft_pos_index(t_stack *a, int index_b)
 {
 	t_node	*current;
 	int		pos;
@@ -107,4 +113,4 @@ int	ft_pos_index(t_stack *a, int index_b)
 	if (a->top->index > index_b)
 		return (0);
 	return (pos);
-}
+}*/
