@@ -6,7 +6,7 @@
 /*   By: jhapke <jhapke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 08:18:53 by jhapke            #+#    #+#             */
-/*   Updated: 2025/04/22 10:52:09 by jhapke           ###   ########.fr       */
+/*   Updated: 2025/04/23 09:11:34 by jhapke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include "libft/libft.h"
+# include "libft.h"
 
 # define MY_INT_MIN -2147483648
 # define MY_INT_MAX 2147483647

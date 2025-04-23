@@ -6,7 +6,7 @@
 /*   By: jhapke <jhapke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 08:48:00 by jhapke            #+#    #+#             */
-/*   Updated: 2025/04/22 10:12:28 by jhapke           ###   ########.fr       */
+/*   Updated: 2025/04/23 11:36:59 by jhapke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_exec_best_move(t_stack *a, t_stack *b, t_best_move *best_move)
 		if (rotate_up_a && rotate_up_b)
 			ft_rotate_handler(a, b, RR);
 		else if (!rotate_up_a && !rotate_up_b)
-			ft_rotate_handler(a, b, RRR);
+			ft_reverse_rotate_handler(a, b, RRR);
 		else
 			break ;
 		rot_count_a--;
@@ -50,7 +50,7 @@ void	ft_rot_exec(t_stack *stack, int rot_count, int rotate_up, int code)
 			if (rotate_up)
 				ft_rotate_handler(stack, NULL, RA);
 			else
-				ft_rotate_handler(stack, NULL, RRA);
+				ft_reverse_rotate_handler(stack, NULL, RRA);
 			rot_count--;
 		}
 	}
@@ -61,7 +61,7 @@ void	ft_rot_exec(t_stack *stack, int rot_count, int rotate_up, int code)
 			if (rotate_up)
 				ft_rotate_handler(NULL, stack, RB);
 			else
-				ft_rotate_handler(NULL, stack, RRB);
+				ft_reverse_rotate_handler(NULL, stack, RRB);
 			rot_count--;
 		}
 	}

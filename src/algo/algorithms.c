@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   small_algorithm.c                                  :+:      :+:    :+:   */
+/*   algorithms.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhapke <jhapke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:18:29 by jhapke            #+#    #+#             */
-/*   Updated: 2025/04/22 11:54:52 by jhapke           ###   ########.fr       */
+/*   Updated: 2025/04/23 10:56:22 by jhapke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,26 @@ void	ft_sort_three(t_stack *stack)
 	}
 	else if (first->index > third->index && second->index < third->index)
 		ft_rotate_handler(stack, NULL, RA);
+}
+
+void	ft_sort_handler(t_stack *a, t_stack *b)
+{
+	t_best_move	*best_move;
+
+	printf("hand: a start: %d, b start: %d\n", a->size, b->size);
+	best_move = ft_calloc(1, sizeof(t_best_move));
+	if (!best_move)
+		ft_error_handler(a, b);
+	ft_partition_stack(a, b);
+	ft_sort_three(a);
+	printf("handl: a bef exe: %d, b bef exe: %d\n", a->size, b->size);
+	while (b->size > 0)
+	{
+		ft_cost_calculation(a, b, best_move);
+		ft_exec_best_move(a, b, best_move);
+		b->size--;
+		a->size++;
+	}
+	printf("hand: a af exe: %d, b af exe: %d\n", a->size, b->size);
+	free (best_move);
 }

@@ -6,7 +6,7 @@
 /*   By: jhapke <jhapke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 10:52:38 by jhapke            #+#    #+#             */
-/*   Updated: 2025/04/22 08:53:04 by jhapke           ###   ########.fr       */
+/*   Updated: 2025/04/23 11:41:21 by jhapke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_cost_calculation(t_stack *a, t_stack *b, t_best_move *best_move)
 {
 	t_node		*current;
 	int			pos_b;
-	int			total_cost;
 
 	best_move->min_cost = MY_INT_MAX;
 	pos_b = 0;
@@ -35,6 +34,7 @@ void	ft_cost_calculation(t_stack *a, t_stack *b, t_best_move *best_move)
 		current = current->next;
 		pos_b++;
 	}
+	printf("Best move: pos_b: %d, pos_a: %d, min_cost: %d, value: %d\n", best_move->best_pos_b, best_move->best_pos_a, best_move->min_cost, best_move->element_value);
 }
 
 int	ft_total_cost(t_stack *a, t_stack *b, int pos_b, int pos_a)
