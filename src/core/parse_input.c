@@ -6,7 +6,7 @@
 /*   By: jhapke <jhapke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 08:33:18 by jhapke            #+#    #+#             */
-/*   Updated: 2025/04/16 10:30:57 by jhapke           ###   ########.fr       */
+/*   Updated: 2025/04/24 11:57:36 by jhapke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,37 @@
 
 void	ft_parse_manager(int argc, char **argv, t_stack *stack)
 {
+	int		i;
+	char	**arg;
+
+	i = 0;
+	if (argc == 2)
+	{
+		arg = ft_split(argv[1], ' ');
+		if (!arg)
+			ft_error_handler(stack, NULL);
+		ft_parse_control(arg, stack);
+		while (arg[i])
+			free (arg[i++]);
+		free (arg);
+	}
+	else
+		ft_parse_control(argv + 1, stack);
+	ft_assign_index(stack);
+}
+
+void	ft_parse_control(char **arg, t_stack *stack)
+{
 	int	i;
 	int	num;
 
-	i = 0;
-	while (++i < argc)
+	i = -1;
+	while (arg[++i] != NULL)
 	{
-		if (ft_valid_number_format(argv[i]) == -1)
+		if (ft_valid_number_format(arg[i]) == -1)
 			ft_error_handler(stack, NULL);
-		num = ft_atoi_checker(argv[i]);
-		if (num == 0 && argv[i][0] != '0')
+		num = ft_atoi_checker(arg[i]);
+		if (num == 0 && arg[i][0] != '0')
 			ft_error_handler(stack, NULL);
 		if (ft_duplicate_checker(stack, num) == -1)
 			ft_error_handler(stack, NULL);

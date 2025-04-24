@@ -6,7 +6,7 @@
 #    By: jhapke <jhapke@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/23 08:52:58 by jhapke            #+#    #+#              #
-#    Updated: 2025/04/23 09:17:42 by jhapke           ###   ########.fr        #
+#    Updated: 2025/04/24 10:08:43 by jhapke           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = push_swap
 
 CC = cc
 
-CFLAGS = -Wextra -Werror -Wall
+CFLAGS = -Wextra -Werror -Wall -g
 
 SRC_DIR = src
 OBJ_DIR = obj
