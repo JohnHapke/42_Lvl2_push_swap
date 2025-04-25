@@ -6,7 +6,7 @@
 #    By: jhapke <jhapke@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/23 08:52:58 by jhapke            #+#    #+#              #
-#    Updated: 2025/04/24 10:08:43 by jhapke           ###   ########.fr        #
+#    Updated: 2025/04/25 11:23:21 by jhapke           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,17 @@ OBJ_DIR = obj
 INC_DIR = include
 LIBFT_DIR = libft
 
-SRC = $(wildcard $(SRC_DIR)/*.c) \
-		$(wildcard $(SRC_DIR)/algo/*.c) \
-		$(wildcard $(SRC_DIR)/core/*.c) \
-		$(wildcard $(SRC_DIR)/ops/*.c) \
-		$(wildcard $(SRC_DIR)/utils/*.c)
+SRC =  $(SRC_DIR)/main.c \
+		$(SRC_DIR)/algo/algorithms.c \
+		$(SRC_DIR)/core/error_handling.c \
+		$(SRC_DIR)/core/init_stack_list.c \
+		$(SRC_DIR)/core/memory.c \
+		$(SRC_DIR)/core/parse_input.c \
+		$(SRC_DIR)/ops/ops_ft.c \
+		$(SRC_DIR)/ops/ops_handler.c \
+		$(SRC_DIR)/utils/cost.c \
+		$(SRC_DIR)/utils/execution.c \
+		$(SRC_DIR)/utils/position.c
 
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
@@ -48,7 +54,8 @@ $(LIBFT):
 $(NAME): $(OBJ_DIR) $(OBJ) $(LIBFT)
 		$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 clean:

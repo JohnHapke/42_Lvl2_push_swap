@@ -6,7 +6,7 @@
 /*   By: jhapke <jhapke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 08:18:53 by jhapke            #+#    #+#             */
-/*   Updated: 2025/04/24 12:21:25 by jhapke           ###   ########.fr       */
+/*   Updated: 2025/04/25 09:03:12 by jhapke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int		ft_is_sorted(t_stack *stack);
 // small algorithm
 void	ft_sort_two(t_stack *stack);
 void	ft_sort_three(t_stack *stack);
-void	ft_sort_five(t_stack *a, t_stack *b);
+void	ft_sort_five(t_stack *a, t_stack *b, int min1, int min2);
 
 //operations handler
 void	ft_push_handler(t_stack *stack_a, t_stack *stack_b, t_ops flag);
@@ -92,6 +92,7 @@ void	ft_reverse_rotate_handler(t_stack *a, t_stack *b, t_ops flag);
 void	ft_swap(t_stack *stack);
 void	ft_rotate(t_stack *stack);
 void	ft_reverse_rotate(t_stack *stack);
+void	ft_push_counter(t_stack *a, t_stack *b, t_ops code);
 
 // principal algorithm
 void	ft_sort_handler(t_stack *a, t_stack *b);
@@ -106,5 +107,6 @@ void	ft_exec_best_move(t_stack *a, t_stack *b, t_best_move *best_move);
 void	ft_rot_exec(t_stack *a, int rot_count, int rotate_up, int code);
 int		ft_rot_count(int size, int pos);
 int		ft_rot_up(int size, int pos);
+void	ft_algo_handler(t_stack *stack_a, t_stack *stack_b, int argc);
 
 #endif

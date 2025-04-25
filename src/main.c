@@ -6,7 +6,7 @@
 /*   By: jhapke <jhapke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 15:10:48 by jhapke            #+#    #+#             */
-/*   Updated: 2025/04/24 12:04:33 by jhapke           ###   ########.fr       */
+/*   Updated: 2025/04/25 11:26:31 by jhapke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	main(int argc, char **argv)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
+	if (argc == 1)
+		return (0);
 	stack_a = ft_init_stack();
 	stack_b = ft_init_stack();
 	if (argc >= 2)
@@ -26,12 +28,7 @@ int	main(int argc, char **argv)
 		ft_parse_manager(argc, argv, stack_a);
 		if (ft_is_sorted(stack_a) == 0)
 			return (0);
-		if (argc == 3)
-			ft_sort_two(stack_a);
-		else if (argc == 4)
-			ft_sort_three(stack_a);
-		else
-			ft_sort_handler(stack_a, stack_b);
+		ft_algo_handler(stack_a, stack_b, argc);
 	}
 	else
 		ft_error_handler(stack_a, stack_b);

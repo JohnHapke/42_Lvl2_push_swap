@@ -6,7 +6,7 @@
 /*   By: jhapke <jhapke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 10:53:50 by jhapke            #+#    #+#             */
-/*   Updated: 2025/04/24 11:35:07 by jhapke           ###   ########.fr       */
+/*   Updated: 2025/04/25 08:41:47 by jhapke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ void	ft_partition_stack(t_stack *a, t_stack *b)
 		if (a->top->index <= (size / 2))
 		{
 			ft_push_handler(a, b, PB);
-			a->size--;
-			b->size++;
 			i++;
 		}
 		else
@@ -34,8 +32,6 @@ void	ft_partition_stack(t_stack *a, t_stack *b)
 	while (i < (size - 3))
 	{
 		ft_push_handler(a, b, PB);
-		a->size--;
-		b->size++;
 		i++;
 	}
 }
@@ -101,4 +97,18 @@ int	ft_is_sorted(t_stack *stack)
 	}
 	ft_free_stack(stack);
 	return (0);
+}
+
+void	ft_push_counter(t_stack *a, t_stack *b, t_ops code)
+{
+	if (code == PA)
+	{
+		a->size++;
+		b->size--;
+	}
+	if (code == PB)
+	{
+		a->size--;
+		b->size++;
+	}
 }

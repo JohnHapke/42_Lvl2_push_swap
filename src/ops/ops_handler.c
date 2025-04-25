@@ -6,7 +6,7 @@
 /*   By: jhapke <jhapke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:24:14 by jhapke            #+#    #+#             */
-/*   Updated: 2025/04/23 08:33:54 by jhapke           ###   ########.fr       */
+/*   Updated: 2025/04/25 08:25:03 by jhapke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	ft_push_handler(t_stack *stack_a, t_stack *stack_b, t_ops flag)
 		stack_b->top = stack_b->top->next;
 		tmp->next = stack_a->top;
 		stack_a->top = tmp;
+		ft_push_counter(stack_a, stack_b, flag);
 		write(1, "pa\n", 3);
 	}
 	if (flag == PB)
@@ -34,6 +35,7 @@ void	ft_push_handler(t_stack *stack_a, t_stack *stack_b, t_ops flag)
 		stack_a->top = stack_a->top->next;
 		tmp->next = stack_b->top;
 		stack_b->top = tmp;
+		ft_push_counter(stack_a, stack_b, flag);
 		write(1, "pb\n", 3);
 	}
 }
