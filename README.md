@@ -85,4 +85,8 @@ OK
 * **Process Management:** Handling the sorting process efficiently
 * **Error Handling:** Managing invalid inputs and edge cases gracefully
 
-## Grade: tbd/100
+## Grade: 100/100
+
+#### Used Tests
+push_swap_tester: https://github.com/gemartin99/Push-Swap-Tester<br>
+visualizer: https://github.com/o-reo/push_swap_visualizer
